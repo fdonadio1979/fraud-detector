@@ -1,3 +1,6 @@
 import streamlit as st
-x = st.slider('x')
-st.write(x, 'squared is', x * x)
+import pandas as pd
+import numpy as np
+df = pd.read_csv("29148163867.csv")
+if st.checkbox('Show dataframe'):
+    st.write(df)

@@ -12,14 +12,15 @@ def load_data_distance(nrows):
     data_d = pd.read_csv("raw-data.csv", nrows=nrows, index_col = "DISTANCE")
     return (data_d)
 
-nrows = st.number_input('Insert a number', max_value=10000, min_value=0, value=1000)
-Km = st.checkbox('Km')
+nrows = st.number_input('Insert a number', max_value=10000, min_value=0, value=100)
 
 df1 = load_data_time(nrows)
-if Km:
+if st.checkbox('Time/Distance Index'):
     df1 = load_data_distance(nrows)
-    
+
+st.map(df1)    
 st.area_chart(df1['HEIGHT'])
+
 
 # @st.cache
 # def fetch_data(SW):

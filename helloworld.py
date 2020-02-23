@@ -6,7 +6,7 @@ df1 = pd.read_csv("raw-data.csv")
 if st.checkbox('Show dataframe'):
     st.write(df1)
 # st.map(df1)
-st.area_chart(df1)
+st.area_chart(df1['HEIGHT'])
 
 # df2 = pd.read_csv("raw-data.csv")
 # st.area_chart(df2)

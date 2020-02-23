@@ -28,9 +28,9 @@ st.write(pdk.Deck(
     initial_view_state={
         "latitude": midpoint[0],
         "longitude": midpoint[1],
-        # "zoom": 11,
-        "zoom": 12,
-        "pitch": 50,
+        "zoom": 11,
+        # "pitch": 50,
+        "pitch": 40,
     },
     layers=[
         pdk.Layer(

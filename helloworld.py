@@ -2,19 +2,38 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-Km = st.checkbox('Km')
 @st.cache
-def fetch_data():
-    data = pd.read_csv("raw-data.csv",index_col = "TIME")
-    if Km:
-        data = pd.read_csv("raw-data.csv",index_col = "DISTANCE")
-    return (data)
-    
-df1 = fetch_data()
-if st.checkbox('Show dataframe'):
-    st.write(df1)
-# st.map(df1)
+def load_data_time(nrows):
+    data = pd.read_csv("raw-data.csv", nrows=nrows, index_col = "TIME")
+    return (data_t)
+
+@st.cache
+def load_data_distance(nrows):
+    data = pd.read_csv("raw-data.csv", nrows=nrows, index_col = "DISTANCE")
+    return (data_d)
+
+nrows = st.number_input('Insert a number')
+Km = st.checkbox('Km')
+
+df1 = load_data_time(nrows);
 st.area_chart(df1['HEIGHT'])
+if Km
+    df1 = load_data_distance(nrows);
+    st.area_chart(df1['HEIGHT'])
+
+
+# @st.cache
+# def fetch_data(SW):
+    # data = pd.read_csv("raw-data.csv",index_col = "TIME")
+    # if Km:
+        # data = pd.read_csv("raw-data.csv",index_col = "DISTANCE")
+    # return (data)
+    
+# df1 = fetch_data()
+# if st.checkbox('Show dataframe'):
+    # st.write(df1)
+# # st.map(df1)
+# st.area_chart(df1['HEIGHT'])
 
 # df2 = pd.read_csv("raw-data.csv")
 # st.area_chart(df2)

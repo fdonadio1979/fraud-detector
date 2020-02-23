@@ -37,7 +37,7 @@ st.write(pdk.Deck(
             data=df1,
             get_position=["lon", "lat"],
             radius=100,
-            elevation_scale=10,
+            elevation_scale=0,
             elevation_range=[0, 1000],
             pickable=True,
             extruded=True,

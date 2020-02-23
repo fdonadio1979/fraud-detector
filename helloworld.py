@@ -4,12 +4,12 @@ import numpy as np
 
 @st.cache
 def load_data_time(nrows):
-    data = pd.read_csv("raw-data.csv", nrows=nrows, index_col = "TIME")
+    data_t = pd.read_csv("raw-data.csv", nrows=nrows, index_col = "TIME")
     return (data_t)
 
 @st.cache
 def load_data_distance(nrows):
-    data = pd.read_csv("raw-data.csv", nrows=nrows, index_col = "DISTANCE")
+    data_d = pd.read_csv("raw-data.csv", nrows=nrows, index_col = "DISTANCE")
     return (data_d)
 
 nrows = st.number_input('Insert a number')

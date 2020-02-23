@@ -8,7 +8,7 @@ def fetch_data():
     df1 = pd.read_csv("raw-data.csv",index_col = "TIME")
     if Km:
         df1 = pd.read_csv("raw-data.csv",index_col = "DISTANCE")
-return (data)
+    return (data)
     
 df2 = fetch_data()
 if st.checkbox('Show dataframe'):

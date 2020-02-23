@@ -22,6 +22,8 @@ if st.checkbox('Time/Distance Index'):
     df1 = load_data_distance(nrows)
 
 midpoint = (np.average(df1["lat"]), np.average(df1["lon"]))
+df2 = df1['SPEED']
+
 st.write(pdk.Deck(
     map_style="mapbox://styles/mapbox/light-v9",
     initial_view_state={
@@ -33,7 +35,7 @@ st.write(pdk.Deck(
     layers=[
         pdk.Layer(
             "HexagonLayer",
-            data=df1['SPEED'],
+            data=df2,
             get_position=["lon", "lat"],
             radius=100,
             elevation_scale=4,
@@ -45,7 +47,7 @@ st.write(pdk.Deck(
 ))
 # st.altair_chart(alt.Chart(df1))
 
-st.map(df1,11)
+# st.map(df1,11)
 st.area_chart(df1['SPEED'])
 st.area_chart(df1['HEIGHT'])
 

@@ -33,7 +33,7 @@ st.write(pdk.Deck(
     layers=[
         pdk.Layer(
             "HexagonLayer",
-            data=df1['INDEX'],
+            data=df1['SPEED'],
             get_position=["lon", "lat"],
             radius=100,
             elevation_scale=4,
@@ -45,8 +45,8 @@ st.write(pdk.Deck(
 ))
 # st.altair_chart(alt.Chart(df1))
 
-# st.map(df1,11)
-st.area_chart(df1['INDEX'])
+st.map(df1,11)
+st.area_chart(df1['SPEED'])
 st.area_chart(df1['HEIGHT'])
 
 

@@ -16,7 +16,7 @@ nrows = st.number_input('Insert a number')
 Km = st.checkbox('Km')
 
 df1 = load_data_time(nrows)
-if Km
+if Km:
     df1 = load_data_distance(nrows)
     
 st.area_chart(df1['HEIGHT'])

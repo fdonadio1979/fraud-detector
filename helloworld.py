@@ -29,8 +29,7 @@ st.write(pdk.Deck(
         "latitude": midpoint[0],
         "longitude": midpoint[1],
         "zoom": 11,
-        # "pitch": 50,
-        "pitch": 40,
+        "pitch": 50,
     },
     layers=[
         pdk.Layer(

@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-df1 = pd.read_csv("raw-data.csv")
+df1 = pd.read_csv("raw-data.csv",index_col = "TIME")
 if st.checkbox('Show dataframe'):
     st.write(df1)
 # st.map(df1)

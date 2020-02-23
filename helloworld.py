@@ -22,7 +22,6 @@ if st.checkbox('Time/Distance Index'):
     df1 = load_data_distance(nrows)
 
 midpoint = (np.average(df1["lat"]), np.average(df1["lon"]))
-df2 = df1['SPEED']
 
 st.write(pdk.Deck(
     map_style="mapbox://styles/mapbox/light-v9",
@@ -35,7 +34,7 @@ st.write(pdk.Deck(
     layers=[
         pdk.Layer(
             "HexagonLayer",
-            data=df2,
+            data=df1,
             get_position=["lon", "lat"],
             radius=100,
             elevation_scale=4,

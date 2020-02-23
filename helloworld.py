@@ -28,7 +28,8 @@ st.write(pdk.Deck(
     initial_view_state={
         "latitude": midpoint[0],
         "longitude": midpoint[1],
-        "zoom": 11,
+        # "zoom": 11,
+        "zoom": 5,
         "pitch": 50,
     },
     layers=[
@@ -37,7 +38,7 @@ st.write(pdk.Deck(
             data=df1,
             get_position=["lon", "lat"],
             radius=100,
-            elevation_scale=0,
+            elevation_scale=4,
             elevation_range=[0, 1000],
             pickable=True,
             extruded=True,

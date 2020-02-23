@@ -33,7 +33,7 @@ st.write(pdk.Deck(
     layers=[
         pdk.Layer(
             "HexagonLayer",
-            data=data,
+            # data=data,
             get_position=["lon", "lat"],
             radius=100,
             elevation_scale=4,

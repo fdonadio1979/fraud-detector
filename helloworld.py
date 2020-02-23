@@ -22,7 +22,7 @@ if st.checkbox('Time/Distance Index'):
 # st.map(df1)    
 st.area_chart(df1['SPEED'])
 st.area_chart(df1['HEIGHT'])
-st.map(df1,9)
+st.map(df1,10)
 
 
 # @st.cache

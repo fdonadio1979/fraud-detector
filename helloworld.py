@@ -19,10 +19,10 @@ df1 = load_data_time(nrows)
 if st.checkbox('Time/Distance Index'):
     df1 = load_data_distance(nrows)
 
-# st.map(df1)    
+st.map(df1,11)
 st.area_chart(df1['SPEED'])
 st.area_chart(df1['HEIGHT'])
-st.map(df1,11)
+
 
 
 # @st.cache

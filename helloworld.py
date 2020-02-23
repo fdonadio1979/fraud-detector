@@ -13,7 +13,7 @@ def load_data_distance(nrows):
     return (data_d)
 
 # nrows = st.number_input('Insert a number', max_value=10000, min_value=0, value=100)
-nrows = st.slider('hour', max_value=11000, min_value=0, value=5000)
+nrows = st.slider('track', max_value=11000, min_value=0, value=5000)
 
 df1 = load_data_time(nrows)
 if st.checkbox('Time/Distance Index'):

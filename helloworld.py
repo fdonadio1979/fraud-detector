@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import altair as alt
+import pydeck as pdk
 
 @st.cache
 def load_data_time(nrows):
@@ -18,6 +20,30 @@ nrows = st.slider('track', max_value=11000, min_value=0, value=5000)
 df1 = load_data_time(nrows)
 if st.checkbox('Time/Distance Index'):
     df1 = load_data_distance(nrows)
+
+midpoint = (np.average(df1["lat"]), np.average(df1["lon"]))
+st.write(pdk.Deck(
+    map_style="mapbox://styles/mapbox/light-v9",
+    initial_view_state={
+        "latitude": midpoint[0],
+        "longitude": midpoint[1],
+        "zoom": 11,
+        "pitch": 50,
+    },
+    layers=[
+        pdk.Layer(
+            "HexagonLayer",
+            data=data,
+            get_position=["lon", "lat"],
+            radius=100,
+            elevation_scale=4,
+            elevation_range=[0, 1000],
+            pickable=True,
+            extruded=True,
+        ),
+    ],
+))
+
 
 st.map(df1,11)
 st.area_chart(df1['SPEED'])

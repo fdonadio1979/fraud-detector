@@ -5,7 +5,8 @@ import numpy as np
 Km = st.checkbox('Km')
 if Km:
     df1 = pd.read_csv("raw-data.csv",index_col = "DISTANCE")
-df1 = pd.read_csv("raw-data.csv",index_col = "TIME")
+else
+    df1 = pd.read_csv("raw-data.csv",index_col = "TIME")
 if st.checkbox('Show dataframe'):
     st.write(df1)
 # st.map(df1)

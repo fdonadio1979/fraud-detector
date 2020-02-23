@@ -15,12 +15,11 @@ def load_data_distance(nrows):
 nrows = st.number_input('Insert a number')
 Km = st.checkbox('Km')
 
-df1 = load_data_time(nrows);
-st.area_chart(df1['HEIGHT'])
+df1 = load_data_time(nrows)
 if Km
-    df1 = load_data_distance(nrows);
-    st.area_chart(df1['HEIGHT'])
-
+    df1 = load_data_distance(nrows)
+    
+st.area_chart(df1['HEIGHT'])
 
 # @st.cache
 # def fetch_data(SW):

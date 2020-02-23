@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-agree = st.checkbox('Km')
+Km = st.checkbox('Km')
 if Km:
     df1 = pd.read_csv("raw-data.csv",index_col = "DISTANCE")
 df1 = pd.read_csv("raw-data.csv",index_col = "TIME")

@@ -7,7 +7,7 @@ import pydeck as pdk
 
 @st.cache
 def load_data_time(nrows):
-    data_t = pd.read_csv("raw-data1.csv", nrows = 300, index_col = "Hours", skiprows=[i for i in range(1,50)])
+    data_t = pd.read_csv("raw-data1.csv", nrows = nrows[1], index_col = "Hours", skiprows=[i for i in range(1,nrows[0])])
     return (data_t)
 
 @st.cache
@@ -27,10 +27,10 @@ if st.checkbox('Time/Distance Index'):
     skiprows = int (sel_value[0] * 1650 / max_value)
     df1 = load_data_distance(nrows)
 else:
-    df1 = load_data_time(1650)
+    df1 = load_data_time([0 1650])
     max_value = df1.index[-1].round(decimals=1)
     sel_value = st.slider('Time [Hours]', 0.1, max_value, (0.1, max_value))
-    nrows = int (sel_value[1] * 1650 / max_value)
+    nrows = int (sel_value * 1650 / max_value)
     st.write(nrows)
     skiprows = int (sel_value[0] * 1650 / max_value)
     st.write(skiprows)

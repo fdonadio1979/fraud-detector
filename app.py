@@ -27,10 +27,11 @@ if st.checkbox('Time/Distance Index'):
     skiprows = int (sel_value[0] * 1650 / max_value)
     df1 = load_data_distance(nrows)
 else:
-    df1 = load_data_time([0 1650])
+    df1 = load_data_time([0, 1650])
     max_value = df1.index[-1].round(decimals=1)
     sel_value = st.slider('Time [Hours]', 0.1, max_value, (0.1, max_value))
     nrows = int (sel_value * 1650 / max_value)
+    st.write([0, 1650])
     st.write(nrows)
     skiprows = int (sel_value[0] * 1650 / max_value)
     st.write(skiprows)

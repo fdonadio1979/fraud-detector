@@ -49,8 +49,11 @@ st.write(pdk.Deck(
 
 # st.map(df1,11)
 st.area_chart(df1['Speed'])
+
+options = st.multiselect('Levels',('VolTotal', 'Vol1', 'Vol2', 'Vol3', 'Vol4', 'Vol5', 'Vol6'))
+st.write('You selected:', options)
     
-st.area_chart(df1[['VolTotal', 'Vol1', 'Vol2']])
+st.area_chart(df1[[options]])
 
 if st.checkbox('Show dataframe'):
     st.write(df1)

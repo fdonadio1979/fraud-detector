@@ -26,14 +26,14 @@ if st.sidebar.checkbox('Km/Hours'):
     sel_value = st.sidebar.slider('Distance [Km]', 0.1, max_value, (0.1, max_value))
     nrows = int (sel_value[1] * 1650 / max_value)
     skiprows = int (sel_value[0] * 1650 / max_value)
-    df1 = load_data_distance(nrows-skiprows, skiprows)
+    df1 = load_data_distance(nrows-skiprows+0.1, skiprows)
 else:
     df1 = load_data_time(1650, 1)
     max_value = df1.index[-1].round(decimals=1)
     sel_value = st.sidebar.slider('Time [Hours]', 0.1, max_value, (0.1, max_value))
     nrows = int (sel_value[1] * 1650 / max_value)
     skiprows = int (sel_value[0] * 1650 / max_value)
-    df1 = load_data_time(nrows-skiprows, skiprows)
+    df1 = load_data_time(nrows-skiprows+0.1, skiprows)
 
 
 
@@ -60,9 +60,7 @@ st.write(pdk.Deck(
         ),
     ],
 ))
-# st.altair_chart(alt.Chart(df1))
 
-# st.map(df1,11)
 st.area_chart(df1['Speed'])
 
 

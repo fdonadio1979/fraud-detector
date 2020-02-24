@@ -49,5 +49,5 @@ st.write(pdk.Deck(
 
 # st.map(df1,11)
 st.area_chart(df1['Speed'])
-st.area_chart(df1['VolTotal'])
+st.area_chart(df1['VolTotal'],df1['Vol1'])
 

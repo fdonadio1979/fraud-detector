@@ -7,11 +7,13 @@ import pydeck as pdk
 @st.cache
 def load_data_time(nrows):
     data_t = pd.read_csv("raw-data1.csv", nrows=nrows, index_col = "Date/Time")
+    data_t[DATE_COLUMN] = pd.to_datetime(data_t[DATE_COLUMN])
     return (data_t)
 
 @st.cache
 def load_data_distance(nrows):
     data_d = pd.read_csv("raw-data1.csv", nrows=nrows, index_col = "Distance")
+    data_d[DATE_COLUMN] = pd.to_datetime(data_d[DATE_COLUMN])
     return (data_d)
 
 # nrows = st.number_input('Insert a number', max_value=1652, min_value=0, value=100)

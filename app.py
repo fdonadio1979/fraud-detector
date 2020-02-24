@@ -24,7 +24,7 @@ df1 = load_data_time(nrows)
 if st.checkbox('Time/Distance Index'):
     df1 = load_data_distance(nrows)
 
-st.write(df.index[-1])
+st.write(df1.index[-1])
 
 midpoint = (np.average(df1["Lat"]), np.average(df1["Lon"]))
 

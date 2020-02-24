@@ -10,7 +10,7 @@ DATE_COLUMN = 'date/time'
 def load_data_time(nrows):
     data_t = pd.read_csv("raw-data1.csv", nrows=nrows, index_col = "Date/Time")
     lowercase = lambda x: str(x).lower()
-    data.rename(lowercase, axis='columns', inplace=True)
+    data_t.rename(lowercase, axis='columns', inplace=True)
     data_t[DATE_COLUMN] = pd.to_datetime(data_t[DATE_COLUMN])
     return (data_t)
 
@@ -18,7 +18,7 @@ def load_data_time(nrows):
 def load_data_distance(nrows):
     data_d = pd.read_csv("raw-data1.csv", nrows=nrows, index_col = "Distance")
     lowercase = lambda x: str(x).lower()
-    data.rename(lowercase, axis='columns', inplace=True)
+    data_d.rename(lowercase, axis='columns', inplace=True)
     data_d[DATE_COLUMN] = pd.to_datetime(data_d[DATE_COLUMN])
     return (data_d)
 

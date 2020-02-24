@@ -34,7 +34,7 @@ else:
     st.write(nrows)
     skiprows = int (sel_value[0] * 1650 / max_value)
     st.write(skiprows)
-    df1 = load_data_time(nrows, skiprows)
+    df1 = load_data_time(nrows-skiprows, skiprows)
 
 
 

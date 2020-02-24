@@ -52,7 +52,7 @@ st.area_chart(df1['Speed'])
 
 # options = st.multiselect('Levels',('VolTotal', 'Vol1', 'Vol2', 'Vol3', 'Vol4', 'Vol5', 'Vol6'))
 columns = st.multiselect(
-    label='What column to you want to display', options=df.columns)
+    label='What column to you want to display', options=df1.columns)
     
 st.area_chart(df1[columns])
 

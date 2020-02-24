@@ -7,12 +7,12 @@ import pydeck as pdk
 
 @st.cache
 def load_data_time(nrows, skiprows):
-    data_t = pd.read_csv("raw-data1.csv", nrows=nrows, skiprows=skiprows, index_col = "Hours")
+    data_t = pd.read_csv("raw-data1.csv", nrows = nrows, skiprows = skiprows, index_col = "Hours")
     return (data_t)
 
 @st.cache
 def load_data_distance(nrows, skiprows):
-    data_d = pd.read_csv("raw-data1.csv", nrows=nrows, skiprows=skiprows, index_col = "Distance")
+    data_d = pd.read_csv("raw-data1.csv", nrows = nrows, skiprows = skiprows, index_col = "Distance")
     return (data_d)
 
 # nrows = st.number_input('Insert a number', max_value=10000, min_value=0, value=100)
@@ -25,7 +25,7 @@ if st.checkbox('Time/Distance Index'):
     sel_value = st.slider('Distance [Km]', 0.1, max_value, (0.1, max_value))
     nrows = int (sel_value[1] * 1650 / max_value)
     skiprows = int (sel_value[0] * 1650 / max_value)
-    df1 = load_data_distance(nrows,skiprows)
+    df1 = load_data_distance(nrows, skiprows)
 else:
     df1 = load_data_time(1650,1)
     max_value = df1.index[-1].round(decimals=1)
@@ -34,7 +34,7 @@ else:
     st.write(nrows)
     skiprows = int (sel_value[0] * 1650 / max_value)
     st.write(skiprows)
-    df1 = load_data_time(nrows,skiprows)
+    df1 = load_data_time(nrows, skiprows)
 
 
 

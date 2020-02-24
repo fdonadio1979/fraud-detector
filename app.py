@@ -23,21 +23,18 @@ if st.checkbox('Time/Distance Index'):
     df1 = load_data_distance(1650)
     max_value = df1.index[-1].round(decimals=1)
     sel_value = st.slider('Distance [Km]', 0.1, max_value, (0.1, max_value))
-    st.write(sel_value[1])
-    st.write(sel_value[2])
-    skiprows = sel_value
-    nrows = int (sel_value * 1650 / max_value)
+    nrows = int (sel_value[1] * 1650 / max_value)
+    skiprows = int (sel_value[2] * 1650 / max_value)
     df1 = load_data_distance(nrows)
 else:
     df1 = load_data_time(1650)
     max_value = df1.index[-1].round(decimals=1)
     sel_value = st.slider('Time [Hours]', 0.1, max_value, (0.1, max_value))
-    st.write(sel_value[1])
-    st.write(sel_value[2])
-    st.write(sel_value)
-    nrows = int (sel_value * 1650 / max_value)
+    nrows = int (sel_value[1] * 1650 / max_value)
+    skiprows = int (sel_value[2] * 1650 / max_value)
     df1 = load_data_time(nrows)
 
+st.write(skiprows)
 
 midpoint = (np.average(df1["Lat"]), np.average(df1["Lon"]))
 

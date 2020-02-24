@@ -17,14 +17,16 @@ def load_data_distance(nrows):
 
 # nrows = st.number_input('Insert a number', max_value=10000, min_value=0, value=100)
 
+last_value = df1.index[-1].round(decimals=1)
+sel_value = st.slider('track', max_value=last_value, min_value=0, value=last_value)
+nrows = sel_value * 1650 / last_value
 
-nrows = st.slider('track', max_value=1652, min_value=0, value=1652)
 
 df1 = load_data_time(nrows)
 if st.checkbox('Time/Distance Index'):
     df1 = load_data_distance(nrows)
 
-st.write(df1.index[-1].round(decimals=1))
+
 
 midpoint = (np.average(df1["Lat"]), np.average(df1["Lon"]))
 

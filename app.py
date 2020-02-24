@@ -32,8 +32,11 @@ else:
     sel_value = st.slider('Time [Hours]', 0.1, max_value, (0.1, max_value))
     nrows = int (sel_value[1] * 1650 / max_value)
     st.write(nrows)
+    st.write(sel_value[1])
     skiprows = int (sel_value[0] * 1650 / max_value)
     st.write(skiprows)
+    st.write(sel_value[0])
+    st.write(nrows - skiprows)
     df1 = load_data_time(nrows-skiprows, skiprows)
 
 

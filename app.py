@@ -20,7 +20,7 @@ def load_data_distance(nrows, skiprows):
 
 
 
-if st.sidebar.checkbox('Time/Distance Index'):
+if st.sidebar.checkbox('Km/Hours'):
     df1 = load_data_distance(1650, 1)
     max_value = df1.index[-1].round(decimals=1)
     sel_value = st.sidebar.slider('Distance [Km]', 0.1, max_value, (0.1, max_value))
@@ -72,5 +72,5 @@ columns = st.multiselect(
     
 st.area_chart(df2[columns])
 
-if st.checkbox('Show dataframe'):
+if st.sidebar.checkbox('Show dataframe'):
     st.write(df2)

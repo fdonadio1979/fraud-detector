@@ -22,7 +22,7 @@ def load_data_distance(nrows, skiprows):
 if st.checkbox('Time/Distance Index'):
     df1 = load_data_distance(1650, 1)
     max_value = df1.index[-1].round(decimals=1)
-    sel_value = st.slider('Time [Hours]', 0.1, max_value, (0.1, max_value))
+    sel_value = st.slider('Distance [Km]', 0.1, max_value, (0.1, max_value))
     nrows = int (sel_value[1] * 1650 / max_value)
     skiprows = int (sel_value[0] * 1650 / max_value)
     df1 = load_data_distance(nrows-skiprows, skiprows)
@@ -67,7 +67,7 @@ st.area_chart(df1['Speed'])
 
 df2 = df1[['VolTotal', 'Vol1', 'Vol2', 'Vol3', 'Vol4', 'Vol5', 'Vol6']]
 columns = st.multiselect(
-    label='What tank do you want to display?', options=df2.columns)
+    label='What tank do you want to display?', options=df2.columns, default="VolTotal")
     
 st.area_chart(df2[columns])
 

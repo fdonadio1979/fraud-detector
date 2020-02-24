@@ -31,10 +31,11 @@ else:
     max_value = df1.index[-1].round(decimals=1)
     sel_value = st.slider('Time [Hours]', 0.1, max_value, (0.1, max_value))
     nrows = int (sel_value[1] * 1650 / max_value)
+    st.write(nrows)
     skiprows = int (sel_value[2] * 1650 / max_value)
     df1 = load_data_time(nrows)
 
-st.write(skiprows)
+
 
 midpoint = (np.average(df1["Lat"]), np.average(df1["Lon"]))
 

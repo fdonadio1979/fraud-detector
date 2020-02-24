@@ -21,9 +21,9 @@ df1 = load_data_time(1650)
 if st.checkbox('Time/Distance Index'):
     df1 = load_data_distance(1650)
 
-last_value = df1.index[-1].round(decimals=1)
-sel_value = st.slider('track', max_value='last_value', min_value=0, value='last_value')
-nrows = sel_value * 1650 / last_value
+max_value = df1.index[-1].round(decimals=1)
+sel_value = st.slider('track', 0, max_value)
+nrows = sel_value * 1650 / max_value
 
 
 df1 = load_data_time(nrows)

@@ -26,14 +26,14 @@ if st.sidebar.checkbox('Km/Hours'):
     sel_value = st.sidebar.slider('Distance [Km]', 0.1, max_value, (0.1, max_value))
     nrows = int (sel_value[1] * 1650 / max_value)
     skiprows = int (sel_value[0] * 1650 / max_value)
-    df1 = load_data_distance(nrows-skiprows+0.1, skiprows)
+    df1 = load_data_distance(nrows-skiprows+1, skiprows)
 else:
     df1 = load_data_time(1650, 1)
     max_value = df1.index[-1].round(decimals=1)
     sel_value = st.sidebar.slider('Time [Hours]', 0.1, max_value, (0.1, max_value))
     nrows = int (sel_value[1] * 1650 / max_value)
     skiprows = int (sel_value[0] * 1650 / max_value)
-    df1 = load_data_time(nrows-skiprows+0.1, skiprows)
+    df1 = load_data_time(nrows-skiprows+1, skiprows)
 
 
 
@@ -70,5 +70,13 @@ columns = st.sidebar.multiselect(
     
 st.area_chart(df2[columns])
 
+df3 = df1[['DifVolTotal', 'DifVol1', 'DifVol2', 'DifVol3', 'DifVol4', 'DifVol5', 'DifVol6']]
+columns = st.sidebar.multiselect(
+    label='What tank do you want to display?', options=df3.columns)
+    
+st.area_chart(df3[columns])
+
 if st.sidebar.checkbox('Show dataframe'):
     st.write(df2)
+    
+    

@@ -5,6 +5,11 @@ import altair as alt
 import pydeck as pdk
 
 
+add_selectbox = st.sidebar.selectbox(
+    'How would you like to be contacted?',
+    ('Email', 'Home phone', 'Mobile phone'))
+)
+
 @st.cache
 def load_data_time(nrows, skiprows):
     data_t = pd.read_csv("raw-data1.csv", nrows = nrows, index_col = "Hours", skiprows=[i for i in range(1,skiprows)])

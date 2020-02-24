@@ -15,11 +15,11 @@ def load_data_distance(nrows):
     return (data_d)
 
 # nrows = st.number_input('Insert a number', max_value=1652, min_value=0, value=100)
-nrows = st.slider('track', max_value=1652, min_value=0, value=500)
+nrows = st.slider('track', max_value=1652, min_value=0, value=1652)
 
-df1 = load_data_time(nrows)
+df1 = load_data_distance(nrows)
 if st.checkbox('Time/Distance Index'):
-    df1 = load_data_distance(nrows)
+    df1 = load_data_time(nrows)
 
 midpoint = (np.average(df1["Lat"]), np.average(df1["Lon"]))
 
@@ -35,7 +35,7 @@ st.write(pdk.Deck(
         pdk.Layer(
             "HexagonLayer",
             data=df1,
-            get_position=["lon", "lat"],
+            get_position=["Lon", "Lat"],
             radius=100,
             elevation_scale=4,
             elevation_range=[0, 1000],

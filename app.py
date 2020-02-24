@@ -49,10 +49,8 @@ st.write(pdk.Deck(
 
 # st.map(df1,11)
 st.area_chart(df1['Speed'])
-
-chart_data = pd.DataFrame(
-    df1,
-    columns=['VolTotal', 'Vol1', 'Vol2'])
     
-st.area_chart(char_data)
+st.area_chart(df1[['VolTotal', 'Vol1', 'Vol2']])
 
+if st.checkbox('Show dataframe'):
+    st.write(df1)

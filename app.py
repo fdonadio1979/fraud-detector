@@ -50,11 +50,12 @@ st.write(pdk.Deck(
 # st.map(df1,11)
 st.area_chart(df1['Speed'])
 
-# options = st.multiselect('Levels',('VolTotal', 'Vol1', 'Vol2', 'Vol3', 'Vol4', 'Vol5', 'Vol6'))
+
+df2 = df1[['VolTotal', 'Vol1', 'Vol2', 'Vol3', 'Vol4', 'Vol5', 'Vol6']]
 columns = st.multiselect(
-    label='What column to you want to display', options=df1.columns)
+    label='What tank do you want to display?', options=df2.columns)
     
-st.area_chart(df1[columns])
+st.area_chart(df2[columns])
 
 if st.checkbox('Show dataframe'):
-    st.write(df1)
+    st.write(df2)

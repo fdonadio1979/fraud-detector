@@ -11,8 +11,8 @@ def load_data_time(nrows, skiprows):
     return (data_t)
 
 @st.cache
-def load_data_distance(nrows):
-    data_d = pd.read_csv("raw-data1.csv", nrows = 300, index_col = "Distance", skiprows=[i for i in range(1,50)])
+def load_data_distance(nrows, skiprows):
+    data_d = pd.read_csv("raw-data1.csv", nrows = nrows, index_col = "Distance", skiprows=[i for i in range(1,skiprows)])
     return (data_d)
 
 # nrows = st.number_input('Insert a number', max_value=10000, min_value=0, value=100)
@@ -20,23 +20,18 @@ def load_data_distance(nrows):
 
 
 if st.checkbox('Time/Distance Index'):
-    df1 = load_data_distance(1650)
+    df1 = load_data_distance(1650, 1)
     max_value = df1.index[-1].round(decimals=1)
-    sel_value = st.slider('Distance [Km]', 0.1, max_value, (0.1, max_value))
+    sel_value = st.slider('Time [Hours]', 0.1, max_value, (0.1, max_value))
     nrows = int (sel_value[1] * 1650 / max_value)
     skiprows = int (sel_value[0] * 1650 / max_value)
-    df1 = load_data_distance(nrows)
+    df1 = load_data_distance(nrows-skiprows, skiprows)
 else:
     df1 = load_data_time(1650, 1)
     max_value = df1.index[-1].round(decimals=1)
     sel_value = st.slider('Time [Hours]', 0.1, max_value, (0.1, max_value))
     nrows = int (sel_value[1] * 1650 / max_value)
-    st.write(nrows)
-    st.write(sel_value[1])
     skiprows = int (sel_value[0] * 1650 / max_value)
-    st.write(skiprows)
-    st.write(sel_value[0])
-    st.write(nrows - skiprows)
     df1 = load_data_time(nrows-skiprows, skiprows)
 
 

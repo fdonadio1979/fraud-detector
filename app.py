@@ -4,17 +4,21 @@ import numpy as np
 import altair as alt
 import pydeck as pdk
 
-DATE_COLUMN = 'Date/Time'
+DATE_COLUMN = 'date/time'
 
 @st.cache
 def load_data_time(nrows):
     data_t = pd.read_csv("raw-data1.csv", nrows=nrows, index_col = "Date/Time")
+    lowercase = lambda x: str(x).lower()
+    data.rename(lowercase, axis='columns', inplace=True)
     data_t[DATE_COLUMN] = pd.to_datetime(data_t[DATE_COLUMN])
     return (data_t)
 
 @st.cache
 def load_data_distance(nrows):
     data_d = pd.read_csv("raw-data1.csv", nrows=nrows, index_col = "Distance")
+    lowercase = lambda x: str(x).lower()
+    data.rename(lowercase, axis='columns', inplace=True)
     data_d[DATE_COLUMN] = pd.to_datetime(data_d[DATE_COLUMN])
     return (data_d)
 
@@ -25,7 +29,7 @@ df1 = load_data_distance(nrows)
 if st.checkbox('Time/Distance Index'):
     df1 = load_data_time(nrows)
 
-midpoint = (np.average(df1["Lat"]), np.average(df1["Lon"]))
+midpoint = (np.average(df1["lat"]), np.average(df1["lon"]))
 
 st.write(pdk.Deck(
     map_style="mapbox://styles/mapbox/light-v9",
@@ -39,7 +43,7 @@ st.write(pdk.Deck(
         pdk.Layer(
             "HexagonLayer",
             data=df1,
-            get_position=["Lon", "Lat"],
+            get_position=["lon", "lat"],
             radius=100,
             elevation_scale=4,
             elevation_range=[0, 1000],

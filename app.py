@@ -4,6 +4,8 @@ import numpy as np
 import altair as alt
 import pydeck as pdk
 
+DATE_COLUMN = 'Date/Time'
+
 @st.cache
 def load_data_time(nrows):
     data_t = pd.read_csv("raw-data1.csv", nrows=nrows, index_col = "Date/Time")

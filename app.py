@@ -67,7 +67,7 @@ st.area_chart(df1['Speed'])
 
 
 df2 = df1[['VolTotal', 'Vol1', 'Vol2', 'Vol3', 'Vol4', 'Vol5', 'Vol6']]
-columns = st.multiselect(
+columns = st.sidebar.multiselect(
     label='What tank do you want to display?', options=df2.columns)
     
 st.area_chart(df2[columns])

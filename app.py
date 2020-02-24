@@ -4,7 +4,7 @@ import numpy as np
 import altair as alt
 import pydeck as pdk
 
-DATE_COLUMN = 'date/time'
+DATE_TIME = "date/time"
 
 @st.cache(persist=True)
 def load_data(nrows):

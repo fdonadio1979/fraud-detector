@@ -77,6 +77,6 @@ columns2 = st.sidebar.multiselect(
 st.area_chart(df3[columns2])
 
 if st.sidebar.checkbox('Show dataframe'):
-    st.write(df2)
+    st.write(df3)
     
     

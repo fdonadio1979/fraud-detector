@@ -12,6 +12,9 @@ def load_data(filename):
 
 csv_file = 'raw-data1.csv'
 df = load_data(csv_file)
+
+print(df.columns)
+
 max_rows = df.index[-1]
 max_distance = df.Distance[-1]
 max_time = df.Hours[-1]

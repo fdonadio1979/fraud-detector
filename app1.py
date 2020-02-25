@@ -21,7 +21,7 @@ max_time = df['Hours'].tail(1)
 
 
 st.write(df)
-st.write(max_rows)
+st.write(max_index)
 st.write(max_distance)
 st.write(max_time)
 print(df.columns)

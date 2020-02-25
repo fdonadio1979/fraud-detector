@@ -6,13 +6,15 @@ import pydeck as pdk
 
 
 @st.cache
-def load_data():
-    data = pd.read_csv("raw-data1.csv")
-    max = data.index[-1]
-    return (data, max)
+def load_data(filename):
+    data = pd.read_csv(filename)
+    return (data)
+
+csv_file = 'raw-data1.csv'
+df = load_data(csv_file)
+max_rows = data.index[-1]
 
 
-(df, max_rows) = load_data()
 
 st.write(df)
 st.write(max_rows)

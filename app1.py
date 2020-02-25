@@ -13,17 +13,18 @@ def load_data(filename):
 csv_file = 'raw-data1.csv'
 df = load_data(csv_file)
 
-print(df.columns)
+
 
 max_index = df.index[-1]
 max_distance = df['Distance'].tail(1)
-max_time = df.Hours['max_index']
+max_time = df['Hours'].tail(1)
 
 
 st.write(df)
 st.write(max_rows)
 st.write(max_distance)
 st.write(max_time)
+print(df.columns)
 
 # @st.cache
 # def load_data_time(nrows, skiprows):

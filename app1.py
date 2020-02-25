@@ -15,9 +15,10 @@ df = load_data(csv_file)
 
 print(df.columns)
 
-max_rows = df.index[-1]
-max_distance = df.Distance[-1]
-max_time = df.Hours[-1]
+max_index = df.index[-1]
+max_distance = df['Distance'].tail(1)
+max_time = df.Hours['max_index']
+
 
 st.write(df)
 st.write(max_rows)

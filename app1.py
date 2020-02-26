@@ -62,6 +62,7 @@ st.write(label)
 st.write(df1)
 df1_t = df1.transpose()
 st.write(supplies.head(1))
+st.write(supplies.loc[0,['Loading Date','Unloading Date','Elapsed Time']])
 # @st.cache
 # def load_data_time(nrows, skiprows):
     # data_t = pd.read_csv("raw-data1.csv", nrows = nrows, index_col = "Hours", skiprows=[i for i in range(1,skiprows)])

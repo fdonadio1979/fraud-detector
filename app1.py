@@ -69,7 +69,7 @@ st.write(to_row)
 st.write(label)
 st.write(supplies.values[0,15])
 st.write(supplies.values[6,15])
-st.write(supplies.values[0,15]+[supplies.values[6,15])
+st.write(supplies.values[0,15]+supplies.values[6,15])
 
 # @st.cache
 # def load_data_time(nrows, skiprows):

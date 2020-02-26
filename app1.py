@@ -126,14 +126,14 @@ else:
 		df6 = df.loc[from_row:to_row,['Vol6','Distance']]
 		df7 = df.loc[from_row:to_row,['DifVol6','Distance']]
 
-st.write(supplies)
-st.write(df)
-st.write(max_index)
-st.write(max_distance)
-st.write(max_time)
-st.write(sel_value)
-st.write(from_row)
-st.write(to_row)
+# st.write(supplies)
+# st.write(df)
+# st.write(max_index)
+# st.write(max_distance)
+# st.write(max_time)
+# st.write(sel_value)
+# st.write(from_row)
+# st.write(to_row)
 
 st.write(label)
 st.write(df1)
@@ -175,10 +175,10 @@ else:
 	df6.set_index('Distance', inplace=True)
 	df7.set_index('Distance', inplace=True)
 
-st.write(df6)
+# st.write(df6)
 st.area_chart(df6)
 
-st.write(df7)
+# st.write(df7)
 st.area_chart(df7)
 
 # st.write(supplies[['Loading Date','Unloading Date','Elapsed Time']].head(1))

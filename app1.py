@@ -25,15 +25,17 @@ index_type = st.sidebar.radio(
 
 if index_type == 'Km':
     max_value = max_distance
-    label = "Distance [Km]"
+    label = df.columns['Distance']
 else:
     max_value = max_time
-    label = "Time [Hs]"
+    label = df.columns['Hours']
 
 sel_value = st.sidebar.slider(label, 0.0, max_value, (0.0, max_value))
 
-from_row = (sel_value[0] * max_index / max_value)
-to_row = (sel_value[1] * max_index / max_value)
+from_row = df.index[df[label] = sel_value[0]]
+
+# from_row = (sel_value[0] * max_index / max_value)
+# to_row = (sel_value[1] * max_index / max_value)
 
 st.write(df)
 st.write(max_index)
@@ -43,6 +45,7 @@ st.write(sel_value)
 st.write(from_row)
 st.write(to_row)
 
+st.write(label)
 
 
 

@@ -43,7 +43,7 @@ tank = st.sidebar.radio(
     ('All', 'Tank1', 'Tank2', 'Tank3', 'Tank4', 'Tank5', 'Tank6'))
 
 if tank == 'All':
-    df1 =  supplies.loc[0,['Loading Date','Unloading Date','Elapsed Time']]
+    df1 =  pd.DataFrame(supplies.loc[0,['Loading Date','Unloading Date','Elapsed Time']])
 	df1_t = df1.transpose()
 elif tank == 'Tank1':
     df1 =  supplies.loc[1,['Loading Date','Unloading Date','Elapsed Time']]

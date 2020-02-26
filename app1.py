@@ -42,7 +42,7 @@ tank = st.sidebar.radio(
 
 if tank == 'All':
     df1 =  pd.DataFrame(
-	[[supplies.values[1,12],58,42,74,22,2.95],
+	[[supplies.values[1,12],[supplies.values[8,8],[supplies.values[8,8]-,74,22,2.95],
 	['Feb',61,45,78,26,3.02],
 	['Mar',65,48,84,25,2.34],
 	['Apr',67,50,92,28,1.02],
@@ -68,7 +68,8 @@ st.write(to_row)
 
 st.write(label)
 st.write(supplies.values[1,12])
-
+st.write(supplies.values[8,8])
+st.write(supplies.values[8,8]-[supplies.values[1,12])
 
 # @st.cache
 # def load_data_time(nrows, skiprows):

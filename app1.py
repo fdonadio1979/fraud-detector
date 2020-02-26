@@ -5,7 +5,7 @@ import altair as alt
 import pydeck as pdk
 
 
-# @st.cache
+@st.cache
 def load_data(filename):
     data = pd.read_csv(filename)
     return (data)
@@ -16,7 +16,7 @@ df = load_data(csv_file)
 supply_file = 'supplies1.csv'
 supplies = load_data(supply_file)
 supplies.set_index('Tank', inplace=True)
-st.write(supplies)
+
 
 max_index = df.index[-1]
 max_distance = df['Distance'].iloc[-1].round(decimals=1)
@@ -78,7 +78,7 @@ else:
 	df3 = supplies.loc['Tank6':'Tank6','Origin':'Travelled Distance']
 	df4 = supplies.loc['Tank6':'Tank6','Unit':'Customer']
 
-
+st.write(supplies)
 st.write(df)
 st.write(max_index)
 st.write(max_distance)
@@ -92,6 +92,7 @@ st.write(df1)
 st.write(df2)
 st.write(df3)
 st.write(df4)
+
 
 
 # st.write(supplies[['Loading Date','Unloading Date','Elapsed Time']].head(1))

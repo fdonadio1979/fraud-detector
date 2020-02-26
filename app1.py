@@ -41,11 +41,11 @@ tank = st.sidebar.radio(
     ('All', 'Tank1', 'Tank2', 'Tank3', 'Tank4', 'Tank5', 'Tank6'))
 
 if tank == 'All':
-    df1 =  df.loc[0,['Loading Date','Unloading Date','Elapsed Time']]
+    df1 =  supplies.loc[0,['Loading Date','Unloading Date','Elapsed Time']]
 elif tank == 'Tank1':
-    df1 =  df.loc[1,['Loading Date','Unloading Date','Elapsed Time']]
+    df1 =  supplies.loc[1,['Loading Date','Unloading Date','Elapsed Time']]
 else:
-    df1 =  df.loc[2,['Loading Date','Unloading Date','Elapsed Time']]
+    df1 =  supplies.loc[2,['Loading Date','Unloading Date','Elapsed Time']]
 	
 st.write(df)
 st.write(max_index)

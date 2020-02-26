@@ -93,6 +93,8 @@ st.write(df2)
 st.write(df3)
 st.write(df4)
 
+df5 = df.loc[from_row:to_row,'Lat':'Lon']
+
 midpoint = (np.average(df["Lat"]), np.average(df["Lon"]))
 
 st.write(pdk.Deck(
@@ -106,7 +108,7 @@ st.write(pdk.Deck(
     layers=[
         pdk.Layer(
             "HexagonLayer",
-            data=df,
+            data=df5,
             get_position=["Lon", "Lat"],
             radius=100,
             elevation_scale=4,

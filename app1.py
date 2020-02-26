@@ -134,10 +134,10 @@ else:
 # st.write(sel_value)
 # st.write(from_row)
 # st.write(to_row)
+# st.write(label)
 
-st.write(label)
-st.write(df1)
 st.write(df2)
+st.write(df1)
 st.write(df3)
 st.write(df4)
 
@@ -176,10 +176,10 @@ else:
 	df7.set_index('Distance', inplace=True)
 
 # st.write(df6)
-st.area_chart(df6)
+st.area_chart(df6, use_container_width=True)
 
 # st.write(df7)
-st.area_chart(df7)
+st.area_chart(df7, use_container_width=True)
 
 # st.write(supplies[['Loading Date','Unloading Date','Elapsed Time']].head(1))
 # st.write(supplies.loc[0,['Loading Date','Unloading Date','Elapsed Time']])

@@ -50,11 +50,9 @@ tank = st.sidebar.radio(
     "Select tank",
     ('Total', 'Tank1', 'Tank2', 'Tank3', 'Tank4', 'Tank5', 'Tank6'))
 
-if tank == 'Total':
-	max_dif = max(df['DifVolTotal'])
-	label_tank = "DifVolTotal"
 
-max_diff = st.sidebar.slider(label_tank, 0.0, max_dif,5.0)
+max_dif = max(df['DifVolTotal'])
+sel_max_dif = st.sidebar.slider("DifVolTotal", 0.0, max_dif,5.0)
 
 
 if tank == 'Total':
@@ -68,7 +66,7 @@ if tank == 'Total':
 	else:
 		df6 = df.loc[from_row:to_row,['VolTotal','Distance']]
 		df7 = df.loc[from_row:to_row,['DifVolTotal','Distance']]
-	df7 = df7[df7['DifVolTotal'] < max_diff]
+	df7 = df7[df7['DifVolTotal'] < sel_max_dif]
 	# df6 = df6[df6['VolTotal'].isin([sel_vol[1]:sel_vol[0]])])
 	# df6 = df6[df6['VolTotal'].between(sel_vol[0], sel_vol[1])]
 elif tank == 'Tank1':
@@ -82,7 +80,7 @@ elif tank == 'Tank1':
 	else:
 		df6 = df.loc[from_row:to_row,['Vol1','Distance']]
 		df7 = df.loc[from_row:to_row,['DifVol1','Distance']]
-	df7 = df7[df7.DifVolTotal < 5.0]
+	df7 = df7[df7['DifVol1'] < sel_max_dif]
 elif tank == 'Tank2':
 	df1 = supplies.loc['Tank2':'Tank2','Loading Date':'Elapsed Time']
 	df2 = supplies.loc['Tank2':'Tank2','Loading Volume (@15C)':'Volume Diff']
@@ -94,6 +92,7 @@ elif tank == 'Tank2':
 	else:
 		df6 = df.loc[from_row:to_row,['Vol2','Distance']]
 		df7 = df.loc[from_row:to_row,['DifVol2','Distance']]
+	df7 = df7[df7['DifVol2'] < sel_max_dif]
 elif tank == 'Tank3':
 	df1 = supplies.loc['Tank3':'Tank3','Loading Date':'Elapsed Time']
 	df2 = supplies.loc['Tank3':'Tank3','Loading Volume (@15C)':'Volume Diff']
@@ -105,6 +104,7 @@ elif tank == 'Tank3':
 	else:
 		df6 = df.loc[from_row:to_row,['Vol3','Distance']]
 		df7 = df.loc[from_row:to_row,['DifVol3','Distance']]
+	df7 = df7[df7['DifVol3'] < sel_max_dif]
 elif tank == 'Tank4':
 	df1 = supplies.loc['Tank4':'Tank4','Loading Date':'Elapsed Time']
 	df2 = supplies.loc['Tank4':'Tank4','Loading Volume (@15C)':'Volume Diff']
@@ -116,6 +116,7 @@ elif tank == 'Tank4':
 	else:
 		df6 = df.loc[from_row:to_row,['Vol4','Distance']]
 		df7 = df.loc[from_row:to_row,['DifVol4','Distance']]
+	df7 = df7[df7['DifVol4'] < sel_max_dif]
 elif tank == 'Tank5':
 	df1 = supplies.loc['Tank5':'Tank5','Loading Date':'Elapsed Time']
 	df2 = supplies.loc['Tank5':'Tank5','Loading Volume (@15C)':'Volume Diff']
@@ -127,6 +128,7 @@ elif tank == 'Tank5':
 	else:
 		df6 = df.loc[from_row:to_row,['Vol5','Distance']]
 		df7 = df.loc[from_row:to_row,['DifVol5','Distance']]
+	df7 = df7[df7['DifVol5'] < sel_max_dif]
 else:
 	df1 = supplies.loc['Tank6':'Tank6','Loading Date':'Elapsed Time']
 	df2 = supplies.loc['Tank6':'Tank6','Loading Volume (@15C)':'Volume Diff']
@@ -138,7 +140,7 @@ else:
 	else:
 		df6 = df.loc[from_row:to_row,['Vol6','Distance']]
 		df7 = df.loc[from_row:to_row,['DifVol6','Distance']]
-
+	df7 = df7[df7['DifVol6'] < sel_max_dif]
 # st.write(supplies)
 # st.write(df)
 # st.write(max_index)

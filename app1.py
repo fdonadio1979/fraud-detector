@@ -20,11 +20,27 @@ max_distance = df['Distance'].iloc[-1].round(decimals=1)
 max_time = df['Hours'].iloc[-1].round(decimals=1)
 
 
+
 st.write(df)
 st.write(max_index)
 st.write(max_distance)
 st.write(max_time)
-print(df.columns)
+
+index_type = st.sidebar.radio(
+    "Select index type",
+    ('Km', 'Hs'))
+
+if index_type == 'Km':
+    max_value = max_distance
+else:
+    max_value = max_time
+
+sel_value = st.sidebar.slider(0, max_value, (0, max_value))
+
+st.write(sel_value)
+st.write(sel_value[0])
+st.write(sel_value[1])
+
 
 # @st.cache
 # def load_data_time(nrows, skiprows):

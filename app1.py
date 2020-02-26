@@ -13,7 +13,7 @@ def load_data(filename):
 csv_file = 'raw-data1.csv'
 df = load_data(csv_file)
 
-supply_file = 'supplies.csv'
+supply_file = 'supplies1.csv'
 supplies = load_data(supply_file)
 
 st.write(supplies)

@@ -44,6 +44,7 @@ tank = st.sidebar.radio(
 
 if tank == 'All':
     df1 =  supplies.loc[0,['Loading Date','Unloading Date','Elapsed Time']]
+	df1_t = df1.T
 elif tank == 'Tank1':
     df1 =  supplies.loc[1,['Loading Date','Unloading Date','Elapsed Time']]
 else:
@@ -58,8 +59,8 @@ st.write(from_row)
 st.write(to_row)
 
 st.write(label)
-st.write(df1.transpose())
-
+st.write(df1)
+st.write(df1_t)
 # @st.cache
 # def load_data_time(nrows, skiprows):
     # data_t = pd.read_csv("raw-data1.csv", nrows = nrows, index_col = "Hours", skiprows=[i for i in range(1,skiprows)])

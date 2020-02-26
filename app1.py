@@ -30,10 +30,10 @@ index_type = st.sidebar.radio(
 
 if index_type == 'Hs':
     max_value = max_distance
-    label = "Distance [Km]"
+    label = "Time [Hs]"
 else:
     max_value = max_time
-    label = "Time [Hs]"
+    label = "Distance [Km]"
 
 sel_value = st.sidebar.slider(label, 0.0, max_value, (0.0, max_value))
 
@@ -54,18 +54,18 @@ if tank == 'Total':
 	df3 = supplies.loc['Total':'Total','Origin':'Travelled Distance']
 	df4 = supplies.loc['Total':'Total','Unit':'Customer']
 	if index_type == 'Hs':
-		df6 = df.loc[:,['VolTotal','Hours']]
+		df6 = df.loc[from_row:to_row,['VolTotal','Hours']]
 	else:
-		df6 = df.loc[:,['VolTotal','Distance']]
+		df6 = df.loc[from_row:to_row,['VolTotal','Distance']]
 elif tank == 'Tank1':
 	df1 = supplies.loc['Tank1':'Tank1','Loading Date':'Elapsed Time']
 	df2 = supplies.loc['Tank1':'Tank1','Loading Volume (@15C)':'Volume Diff']
 	df3 = supplies.loc['Tank1':'Tank1','Origin':'Travelled Distance']
 	df4 = supplies.loc['Tank1':'Tank1','Unit':'Customer']
 	if index_type == 'Hs':
-		df6 = df.loc[:,['Vol1','Hours']]
+		df6 = df.loc[from_row:to_row,['Vol1','Hours']]
 	else:
-		df6 = df.loc[:,['Vol1','Distance']]
+		df6 = df.loc[from_row:to_row,['Vol1','Distance']]
 elif tank == 'Tank2':
 	df1 = supplies.loc['Tank2':'Tank2','Loading Date':'Elapsed Time']
 	df2 = supplies.loc['Tank2':'Tank2','Loading Volume (@15C)':'Volume Diff']

@@ -32,7 +32,7 @@ else:
 
 sel_value = st.sidebar.slider(label, 0.0, max_value, (0.0, max_value))
 
-from_row = df.index[df[label] = sel_value[0]]
+# from_row = df.index[df[label] = sel_value[0]]
 
 # from_row = (sel_value[0] * max_index / max_value)
 # to_row = (sel_value[1] * max_index / max_value)

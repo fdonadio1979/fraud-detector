@@ -5,7 +5,7 @@ import altair as alt
 import pydeck as pdk
 
 
-@st.cache
+# @st.cache
 def load_data(filename):
     data = pd.read_csv(filename)
     return (data)

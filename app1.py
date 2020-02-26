@@ -72,7 +72,7 @@ if tank == 'Total':
 		df7 = df.loc[from_row:to_row,['DifVolTotal','Distance']]
 	# df7 = df7[df7.DifVolTotal < 5.0]
 	# df6 = df6[df6['VolTotal'].isin([sel_vol[1]:sel_vol[0]])])
-	df6 = df6[df6['VolTotal'].between(0, 20)]
+	df6 = df6[df6['VolTotal'].between(sel_vol[0], sel_vol[1])]
 elif tank == 'Tank1':
 	df1 = supplies.loc['Tank1':'Tank1','Loading Date':'Elapsed Time']
 	df2 = supplies.loc['Tank1':'Tank1','Loading Volume (@15C)':'Volume Diff']

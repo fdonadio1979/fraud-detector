@@ -15,7 +15,7 @@ df = load_data(csv_file)
 
 supply_file = 'supplies1.csv'
 supplies = load_data(supply_file)
-
+supplies.set_index('Tank')
 
 st.write(supplies)
 
@@ -44,12 +44,11 @@ tank = st.sidebar.radio(
     ('All', 'Tank1', 'Tank2', 'Tank3', 'Tank4', 'Tank5', 'Tank6'))
 
 if tank == 'All':
-	supplies.set_index('Tank')
     df1 = supplies.loc['Total':'Total','Loading Date':'Elapsed Time']
-elif tank == 'Tank1':
-    df1 = supplies.loc[1,['Loading Date','Unloading Date','Elapsed Time']]
-else:
-    df1 = supplies.loc[2,['Loading Date','Unloading Date','Elapsed Time']]
+# elif tank == 'Tank1':
+    # df1 = supplies.loc[1,['Loading Date','Unloading Date','Elapsed Time']]
+# else:
+    # df1 = supplies.loc[2,['Loading Date','Unloading Date','Elapsed Time']]
 
 
 st.write(df)

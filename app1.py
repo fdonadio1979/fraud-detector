@@ -40,14 +40,43 @@ to_row = int (sel_value[1] * max_index / max_value)
 
 tank = st.sidebar.radio(
     "Select tank",
-    ('All', 'Tank1', 'Tank2', 'Tank3', 'Tank4', 'Tank5', 'Tank6'))
+    ('Total', 'Tank1', 'Tank2', 'Tank3', 'Tank4', 'Tank5', 'Tank6'))
 
-if tank == 'All':
-    df1 = supplies.loc['Total':'Total','Loading Date':'Elapsed Time']
-# elif tank == 'Tank1':
-    # df1 = supplies.loc[1,['Loading Date','Unloading Date','Elapsed Time']]
-# else:
-    # df1 = supplies.loc[2,['Loading Date','Unloading Date','Elapsed Time']]
+if tank == 'Total':
+	df1 = supplies.loc['Total':'Total','Loading Date':'Elapsed Time']
+	df2 = supplies.loc['Total':'Total','Loading Volume (@15C)':'Volume Diff']
+	df3 = supplies.loc['Total':'Total','Origin':'Travelled Distance']
+	df4 = supplies.loc['Total':'Total','Unit':'Customer']
+elif tank == 'Tank1':
+	df1 = supplies.loc['Tank1':'Tank1','Loading Date':'Elapsed Time']
+	df2 = supplies.loc['Tank1':'Tank1','Loading Volume (@15C)':'Volume Diff']
+	df3 = supplies.loc['Tank1':'Tank1','Origin':'Travelled Distance']
+	df4 = supplies.loc['Tank1':'Tank1','Unit':'Customer']
+elif tank == 'Tank2':
+	df1 = supplies.loc['Tank2':'Tank2','Loading Date':'Elapsed Time']
+	df2 = supplies.loc['Tank2':'Tank2','Loading Volume (@15C)':'Volume Diff']
+	df3 = supplies.loc['Tank2':'Tank2','Origin':'Travelled Distance']
+	df4 = supplies.loc['Tank2':'Tank2','Unit':'Customer']
+elif tank == 'Tank3':
+	df1 = supplies.loc['Tank3':'Tank3','Loading Date':'Elapsed Time']
+	df2 = supplies.loc['Tank3':'Tank3','Loading Volume (@15C)':'Volume Diff']
+	df3 = supplies.loc['Tank3':'Tank3','Origin':'Travelled Distance']
+	df4 = supplies.loc['Tank3':'Tank3','Unit':'Customer']
+elif tank == 'Tank4':
+	df1 = supplies.loc['Tank4':'Tank4','Loading Date':'Elapsed Time']
+	df2 = supplies.loc['Tank4':'Tank4','Loading Volume (@15C)':'Volume Diff']
+	df3 = supplies.loc['Tank4':'Tank4','Origin':'Travelled Distance']
+	df4 = supplies.loc['Tank4':'Tank4','Unit':'Customer']
+elif tank == 'Tank5':
+	df1 = supplies.loc['Tank5':'Tank5','Loading Date':'Elapsed Time']
+	df2 = supplies.loc['Tank5':'Tank5','Loading Volume (@15C)':'Volume Diff']
+	df3 = supplies.loc['Tank5':'Tank5','Origin':'Travelled Distance']
+	df4 = supplies.loc['Tank5':'Tank5','Unit':'Customer']
+else:
+	df1 = supplies.loc['Tank6':'Tank6','Loading Date':'Elapsed Time']
+	df2 = supplies.loc['Tank6':'Tank6','Loading Volume (@15C)':'Volume Diff']
+	df3 = supplies.loc['Tank6':'Tank6','Origin':'Travelled Distance']
+	df4 = supplies.loc['Tank6':'Tank6','Unit':'Customer']
 
 
 st.write(df)
@@ -60,7 +89,11 @@ st.write(to_row)
 
 st.write(label)
 st.write(df1)
-df1_t = df1.transpose()
+st.write(df2)
+st.write(df3)
+st.write(df4)
+
+
 # st.write(supplies[['Loading Date','Unloading Date','Elapsed Time']].head(1))
 # st.write(supplies.loc[0,['Loading Date','Unloading Date','Elapsed Time']])
 # @st.cache

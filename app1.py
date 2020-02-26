@@ -58,7 +58,7 @@ st.write(from_row)
 st.write(to_row)
 
 st.write(label)
-st.write(df1.transpose(data=df1))
+st.write(df1.transpose())
 
 # @st.cache
 # def load_data_time(nrows, skiprows):

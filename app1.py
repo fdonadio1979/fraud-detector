@@ -128,9 +128,9 @@ st.write(pdk.Deck(
 
 
 if index_type == 'Hs':
-	df.set_index('Hours', inplace=True)
+	df6.set_index('Hours', inplace=True)
 else:
-	df.set_index('Distance', inplace=True)
+	df6.set_index('Distance', inplace=True)
 
 st.write(df6)
 st.area_chart(df6)

@@ -186,18 +186,22 @@ st.write(pdk.Deck(
 if index_type == 'Hs':
 	df6.set_index('Hours', inplace=True)
 	df7.set_index('Hours', inplace=True)
+	df9 = df.loc[from_row:to_row,['Speed','Hours']]
 else:
 	df6.set_index('Distance', inplace=True)
 	df7.set_index('Distance', inplace=True)
-
+	df9 = df.loc[from_row:to_row,['Speed','Distance']]
 # st.write(df6)
 
+st.area_chart(df9, use_container_width=True)
 
 st.area_chart(df6, use_container_width=True)
 
 # st.write(df7)
 
 st.area_chart(df7, use_container_width=True)
+
+
 
 # st.write(supplies[['Loading Date','Unloading Date','Elapsed Time']].head(1))
 # st.write(supplies.loc[0,['Loading Date','Unloading Date','Elapsed Time']])

@@ -53,37 +53,64 @@ if tank == 'Total':
 	df2 = supplies.loc['Total':'Total','Loading Volume (@15C)':'Volume Diff']
 	df3 = supplies.loc['Total':'Total','Origin':'Travelled Distance']
 	df4 = supplies.loc['Total':'Total','Unit':'Customer']
-	df6 = df.loc[:,['VolTotal','Hours']]
+	if index_type == 'Hs':
+		df6 = df.loc[:,['VolTotal','Hours']]
+	else:
+		df6 = df.loc[:,['VolTotal','Distance']]
 elif tank == 'Tank1':
 	df1 = supplies.loc['Tank1':'Tank1','Loading Date':'Elapsed Time']
 	df2 = supplies.loc['Tank1':'Tank1','Loading Volume (@15C)':'Volume Diff']
 	df3 = supplies.loc['Tank1':'Tank1','Origin':'Travelled Distance']
 	df4 = supplies.loc['Tank1':'Tank1','Unit':'Customer']
+	if index_type == 'Hs':
+		df6 = df.loc[:,['Vol1','Hours']]
+	else:
+		df6 = df.loc[:,['Vol1','Distance']]
 elif tank == 'Tank2':
 	df1 = supplies.loc['Tank2':'Tank2','Loading Date':'Elapsed Time']
 	df2 = supplies.loc['Tank2':'Tank2','Loading Volume (@15C)':'Volume Diff']
 	df3 = supplies.loc['Tank2':'Tank2','Origin':'Travelled Distance']
 	df4 = supplies.loc['Tank2':'Tank2','Unit':'Customer']
+	if index_type == 'Hs':
+		df6 = df.loc[:,['Vol2','Hours']]
+	else:
+		df6 = df.loc[:,['Vol2','Distance']]
 elif tank == 'Tank3':
 	df1 = supplies.loc['Tank3':'Tank3','Loading Date':'Elapsed Time']
 	df2 = supplies.loc['Tank3':'Tank3','Loading Volume (@15C)':'Volume Diff']
 	df3 = supplies.loc['Tank3':'Tank3','Origin':'Travelled Distance']
 	df4 = supplies.loc['Tank3':'Tank3','Unit':'Customer']
+	if index_type == 'Hs':
+		df6 = df.loc[:,['Vol3','Hours']]
+	else:
+		df6 = df.loc[:,['Vol3','Distance']]
 elif tank == 'Tank4':
 	df1 = supplies.loc['Tank4':'Tank4','Loading Date':'Elapsed Time']
 	df2 = supplies.loc['Tank4':'Tank4','Loading Volume (@15C)':'Volume Diff']
 	df3 = supplies.loc['Tank4':'Tank4','Origin':'Travelled Distance']
 	df4 = supplies.loc['Tank4':'Tank4','Unit':'Customer']
+	if index_type == 'Hs':
+		df6 = df.loc[:,['Vol4','Hours']]
+	else:
+		df6 = df.loc[:,['Vol4','Distance']]
 elif tank == 'Tank5':
 	df1 = supplies.loc['Tank5':'Tank5','Loading Date':'Elapsed Time']
 	df2 = supplies.loc['Tank5':'Tank5','Loading Volume (@15C)':'Volume Diff']
 	df3 = supplies.loc['Tank5':'Tank5','Origin':'Travelled Distance']
 	df4 = supplies.loc['Tank5':'Tank5','Unit':'Customer']
+	if index_type == 'Hs':
+		df6 = df.loc[:,['Vol5','Hours']]
+	else:
+		df6 = df.loc[:,['Vol5','Distance']]
 else:
 	df1 = supplies.loc['Tank6':'Tank6','Loading Date':'Elapsed Time']
 	df2 = supplies.loc['Tank6':'Tank6','Loading Volume (@15C)':'Volume Diff']
 	df3 = supplies.loc['Tank6':'Tank6','Origin':'Travelled Distance']
 	df4 = supplies.loc['Tank6':'Tank6','Unit':'Customer']
+	if index_type == 'Hs':
+		df6 = df.loc[:,['Vol6','Hours']]
+	else:
+		df6 = df.loc[:,['Vol6','Distance']]
 
 st.write(supplies)
 st.write(df)
@@ -130,7 +157,7 @@ st.write(pdk.Deck(
 if index_type == 'Hs':
 	df6.set_index('Hours', inplace=True)
 else:
-	df.set_index('Distance', inplace=True)
+	df6.set_index('Distance', inplace=True)
 
 st.write(df6)
 st.area_chart(df6)

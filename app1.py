@@ -24,6 +24,7 @@ max_time = df['Hours'].iloc[-1].round(decimals=1)
 
 
 
+
 index_type = st.sidebar.radio(
     "Select index type",
     ('Km', 'Hs'))
@@ -44,9 +45,17 @@ df5 = df.loc[from_row:to_row,'Lat':'Lon']
 midpoint = (np.average(df["Lat"]), np.average(df["Lon"]))
 
 
+
 tank = st.sidebar.radio(
     "Select tank",
     ('Total', 'Tank1', 'Tank2', 'Tank3', 'Tank4', 'Tank5', 'Tank6'))
+
+if tank == 'Total':
+	max_vol = max(df['VolTotal'])
+	max_dif = max(df['DifVolTotal'])
+	label_tank = "Total"
+
+sel_vol = st.sidebar.slider(label_tank, 0.0, max_vol, (0.0, max_vol))
 
 if tank == 'Total':
 	df1 = supplies.loc['Total':'Total','Loading Date':'Elapsed Time']
@@ -59,7 +68,8 @@ if tank == 'Total':
 	else:
 		df6 = df.loc[from_row:to_row,['VolTotal','Distance']]
 		df7 = df.loc[from_row:to_row,['DifVolTotal','Distance']]
-	df7 = df7[df7.DifVolTotal < 10.0]
+	# df7 = df7[df7.DifVolTotal < 5.0]
+	df6 = df6[df6['VolTotal'].isin(sel_vol[1]:sel_vol[0])])
 elif tank == 'Tank1':
 	df1 = supplies.loc['Tank1':'Tank1','Loading Date':'Elapsed Time']
 	df2 = supplies.loc['Tank1':'Tank1','Loading Volume (@15C)':'Volume Diff']
@@ -71,6 +81,7 @@ elif tank == 'Tank1':
 	else:
 		df6 = df.loc[from_row:to_row,['Vol1','Distance']]
 		df7 = df.loc[from_row:to_row,['DifVol1','Distance']]
+	df7 = df7[df7.DifVolTotal < 5.0]
 elif tank == 'Tank2':
 	df1 = supplies.loc['Tank2':'Tank2','Loading Date':'Elapsed Time']
 	df2 = supplies.loc['Tank2':'Tank2','Loading Volume (@15C)':'Volume Diff']
@@ -177,6 +188,8 @@ else:
 	df7.set_index('Distance', inplace=True)
 
 # st.write(df6)
+
+
 st.area_chart(df6, use_container_width=True)
 
 # st.write(df7)

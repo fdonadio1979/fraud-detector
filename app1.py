@@ -25,6 +25,7 @@ max_time = df['Hours'].iloc[-1].round(decimals=1)
 
 
 
+
 index_type = st.sidebar.radio(
     "Select index type",
     ('Km', 'Hs'))

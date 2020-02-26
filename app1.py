@@ -35,7 +35,7 @@ if index_type == 'Km':
 else:
     max_value = max_time
 
-sel_value = st.sidebar.slider(0.0, max_value, (0.0, max_value))
+sel_value = st.sidebar.slider('Distance [Km]', 0.1, max_value, (0.1, max_value))
 
 st.write(sel_value)
 st.write(sel_value[0])

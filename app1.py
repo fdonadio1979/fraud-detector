@@ -56,10 +56,10 @@ sel_max_dif = st.sidebar.slider("DifVolTotal", 0.0, max_dif,5.0)
 
 
 if tank == 'Total':
-	df1 = supplies.loc['Total':'Total','Loading Date':'Elapsed Time']
-	df2 = supplies.loc['Total':'Total','Loading Volume (@15C)':'Volume Diff']
-	df3 = supplies.loc['Total':'Total','Origin':'Travelled Distance']
-	df4 = supplies.loc['Total':'Total','Unit':'Customer']
+	df1 = supplies.loc['Total':'Total','Loading Date':'Elapsed Time [Hrs]']
+	df2 = supplies.loc['Total':'Total','Loaded Vol. (@15C) [m3]':'Volume Diff [‰]']
+	df3 = supplies.loc['Total':'Total','Origin Location':'Travelled Dist. [Km]']
+	df4 = supplies.loc['Total':'Total','Unit Identification':'Shell Customer']
 	if index_type == 'Hs':
 		df6 = df.loc[from_row:to_row,['VolTotal','Hours']]
 		df7 = df.loc[from_row:to_row,['DifVolTotal','Hours']]
@@ -70,10 +70,10 @@ if tank == 'Total':
 	# df6 = df6[df6['VolTotal'].isin([sel_vol[1]:sel_vol[0]])])
 	# df6 = df6[df6['VolTotal'].between(sel_vol[0], sel_vol[1])]
 elif tank == 'Tank1':
-	df1 = supplies.loc['Tank1':'Tank1','Loading Date':'Elapsed Time']
-	df2 = supplies.loc['Tank1':'Tank1','Loading Volume (@15C)':'Volume Diff']
-	df3 = supplies.loc['Tank1':'Tank1','Origin':'Travelled Distance']
-	df4 = supplies.loc['Tank1':'Tank1','Unit':'Customer']
+	df1 = supplies.loc['Tank1':'Tank1','Loading Date':'Elapsed Time [Hrs]']
+	df2 = supplies.loc['Tank1':'Tank1','Loaded Vol. (@15C) [m3]':'Volume Diff [‰]']
+	df3 = supplies.loc['Tank1':'Tank1','Origin Location':'Travelled Dist. [Km]']
+	df4 = supplies.loc['Tank1':'Tank1','Unit Identification':'Shell Customer']
 	if index_type == 'Hs':
 		df6 = df.loc[from_row:to_row,['Vol1','Hours']]
 		df7 = df.loc[from_row:to_row,['DifVol1','Hours']]
@@ -82,10 +82,10 @@ elif tank == 'Tank1':
 		df7 = df.loc[from_row:to_row,['DifVol1','Distance']]
 	df7 = df7[df7['DifVol1'] < sel_max_dif]
 elif tank == 'Tank2':
-	df1 = supplies.loc['Tank2':'Tank2','Loading Date':'Elapsed Time']
-	df2 = supplies.loc['Tank2':'Tank2','Loading Volume (@15C)':'Volume Diff']
-	df3 = supplies.loc['Tank2':'Tank2','Origin':'Travelled Distance']
-	df4 = supplies.loc['Tank2':'Tank2','Unit':'Customer']
+	df1 = supplies.loc['Tank2':'Tank2','Loading Date':'Elapsed Time [Hrs]']
+	df2 = supplies.loc['Tank2':'Tank2','Loaded Vol. (@15C) [m3]':'Volume Diff [‰]']
+	df3 = supplies.loc['Tank2':'Tank2','Origin Location':'Travelled Dist. [Km]']
+	df4 = supplies.loc['Tank2':'Tank2','Unit Identification':'Shell Customer']
 	if index_type == 'Hs':
 		df6 = df.loc[from_row:to_row,['Vol2','Hours']]
 		df7 = df.loc[from_row:to_row,['DifVol2','Hours']]
@@ -94,10 +94,10 @@ elif tank == 'Tank2':
 		df7 = df.loc[from_row:to_row,['DifVol2','Distance']]
 	df7 = df7[df7['DifVol2'] < sel_max_dif]
 elif tank == 'Tank3':
-	df1 = supplies.loc['Tank3':'Tank3','Loading Date':'Elapsed Time']
-	df2 = supplies.loc['Tank3':'Tank3','Loading Volume (@15C)':'Volume Diff']
-	df3 = supplies.loc['Tank3':'Tank3','Origin':'Travelled Distance']
-	df4 = supplies.loc['Tank3':'Tank3','Unit':'Customer']
+	df1 = supplies.loc['Tank3':'Tank3','Loading Date':'Elapsed Time [Hrs]']
+	df2 = supplies.loc['Tank3':'Tank3','Loaded Vol. (@15C) [m3]':'Volume Diff [‰]']
+	df3 = supplies.loc['Tank3':'Tank3','Origin Location':'Travelled Dist. [Km]']
+	df4 = supplies.loc['Tank3':'Tank3','Unit Identification':'Shell Customer']
 	if index_type == 'Hs':
 		df6 = df.loc[from_row:to_row,['Vol3','Hours']]
 		df7 = df.loc[from_row:to_row,['DifVol3','Hours']]
@@ -106,10 +106,10 @@ elif tank == 'Tank3':
 		df7 = df.loc[from_row:to_row,['DifVol3','Distance']]
 	df7 = df7[df7['DifVol3'] < sel_max_dif]
 elif tank == 'Tank4':
-	df1 = supplies.loc['Tank4':'Tank4','Loading Date':'Elapsed Time']
-	df2 = supplies.loc['Tank4':'Tank4','Loading Volume (@15C)':'Volume Diff']
-	df3 = supplies.loc['Tank4':'Tank4','Origin':'Travelled Distance']
-	df4 = supplies.loc['Tank4':'Tank4','Unit':'Customer']
+	df1 = supplies.loc['Tank4':'Tank4','Loading Date':'Elapsed Time [Hrs]']
+	df2 = supplies.loc['Tank4':'Tank4','Loaded Vol. (@15C) [m3]':'Volume Diff [‰]']
+	df3 = supplies.loc['Tank4':'Tank4','Origin Location':'Travelled Dist. [Km]']
+	df4 = supplies.loc['Tank4':'Tank4','Unit Identification':'Shell Customer']
 	if index_type == 'Hs':
 		df6 = df.loc[from_row:to_row,['Vol4','Hours']]
 		df7 = df.loc[from_row:to_row,['DifVol4','Hours']]
@@ -118,10 +118,10 @@ elif tank == 'Tank4':
 		df7 = df.loc[from_row:to_row,['DifVol4','Distance']]
 	df7 = df7[df7['DifVol4'] < sel_max_dif]
 elif tank == 'Tank5':
-	df1 = supplies.loc['Tank5':'Tank5','Loading Date':'Elapsed Time']
-	df2 = supplies.loc['Tank5':'Tank5','Loading Volume (@15C)':'Volume Diff']
-	df3 = supplies.loc['Tank5':'Tank5','Origin':'Travelled Distance']
-	df4 = supplies.loc['Tank5':'Tank5','Unit':'Customer']
+	df1 = supplies.loc['Tank5':'Tank5','Loading Date':'Elapsed Time [Hrs]']
+	df2 = supplies.loc['Tank5':'Tank5','Loaded Vol. (@15C) [m3]':'Volume Diff [‰]']
+	df3 = supplies.loc['Tank5':'Tank5','Origin Location':'Travelled Dist. [Km]']
+	df4 = supplies.loc['Tank5':'Tank5','Unit Identification':'Shell Customer']
 	if index_type == 'Hs':
 		df6 = df.loc[from_row:to_row,['Vol5','Hours']]
 		df7 = df.loc[from_row:to_row,['DifVol5','Hours']]
@@ -130,10 +130,10 @@ elif tank == 'Tank5':
 		df7 = df.loc[from_row:to_row,['DifVol5','Distance']]
 	df7 = df7[df7['DifVol5'] < sel_max_dif]
 else:
-	df1 = supplies.loc['Tank6':'Tank6','Loading Date':'Elapsed Time']
-	df2 = supplies.loc['Tank6':'Tank6','Loading Volume (@15C)':'Volume Diff']
-	df3 = supplies.loc['Tank6':'Tank6','Origin':'Travelled Distance']
-	df4 = supplies.loc['Tank6':'Tank6','Unit':'Customer']
+	df1 = supplies.loc['Tank6':'Tank6','Loading Date':'Elapsed Time [Hrs]']
+	df2 = supplies.loc['Tank6':'Tank6','Loaded Vol. (@15C) [m3]':'Volume Diff [‰]']
+	df3 = supplies.loc['Tank6':'Tank6','Origin Location':'Travelled Dist. [Km]']
+	df4 = supplies.loc['Tank6':'Tank6','Unit Identification':'Shell Customer']
 	if index_type == 'Hs':
 		df6 = df.loc[from_row:to_row,['Vol6','Hours']]
 		df7 = df.loc[from_row:to_row,['DifVol6','Hours']]

@@ -22,6 +22,8 @@ max_index = df.index[-1]
 max_distance = df['Distance'].iloc[-1].round(decimals=1)
 max_time = df['Hours'].iloc[-1].round(decimals=1)
 
+
+
 index_type = st.sidebar.radio(
     "Select index type",
     ('Km', 'Hs'))
@@ -38,6 +40,10 @@ sel_value = st.sidebar.slider(label, 0.0, max_value, (0.0, max_value))
 from_row = int (sel_value[0] * max_index / max_value)
 to_row = int (sel_value[1] * max_index / max_value)
 
+df5 = df.loc[from_row:to_row,'Lat':'Lon']
+midpoint = (np.average(df["Lat"]), np.average(df["Lon"]))
+
+
 tank = st.sidebar.radio(
     "Select tank",
     ('Total', 'Tank1', 'Tank2', 'Tank3', 'Tank4', 'Tank5', 'Tank6'))
@@ -47,6 +53,7 @@ if tank == 'Total':
 	df2 = supplies.loc['Total':'Total','Loading Volume (@15C)':'Volume Diff']
 	df3 = supplies.loc['Total':'Total','Origin':'Travelled Distance']
 	df4 = supplies.loc['Total':'Total','Unit':'Customer']
+	df6 = df.loc[:,['VolTotal','Hours']]
 elif tank == 'Tank1':
 	df1 = supplies.loc['Tank1':'Tank1','Loading Date':'Elapsed Time']
 	df2 = supplies.loc['Tank1':'Tank1','Loading Volume (@15C)':'Volume Diff']
@@ -93,9 +100,9 @@ st.write(df2)
 st.write(df3)
 st.write(df4)
 
-df5 = df.loc[from_row:to_row,'Lat':'Lon']
 
-midpoint = (np.average(df["Lat"]), np.average(df["Lon"]))
+
+
 
 st.write(pdk.Deck(
     map_style="mapbox://styles/mapbox/light-v9",
@@ -118,6 +125,15 @@ st.write(pdk.Deck(
         ),
     ],
 ))
+
+
+if index_type == 'Hs':
+	df.set_index('Hours', inplace=True)
+else:
+	df.set_index('Distance', inplace=True)
+
+st.write(df6)
+st.area_chart(df6)
 
 
 # st.write(supplies[['Loading Date','Unloading Date','Elapsed Time']].head(1))

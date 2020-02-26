@@ -29,10 +29,10 @@ index_type = st.sidebar.radio(
     ('Km', 'Hs'))
 
 if index_type == 'Hs':
-    max_value = max_distance
+    max_value = max_time
     label = "Time [Hs]"
 else:
-    max_value = max_time
+    max_value = max_distance
     label = "Distance [Km]"
 
 sel_value = st.sidebar.slider(label, 0.0, max_value, (0.0, max_value))
@@ -72,45 +72,45 @@ elif tank == 'Tank2':
 	df3 = supplies.loc['Tank2':'Tank2','Origin':'Travelled Distance']
 	df4 = supplies.loc['Tank2':'Tank2','Unit':'Customer']
 	if index_type == 'Hs':
-		df6 = df.loc[:,['Vol2','Hours']]
+		df6 = df.loc[from_row:to_row,['Vol2','Hours']]
 	else:
-		df6 = df.loc[:,['Vol2','Distance']]
+		df6 = df.loc[from_row:to_row,['Vol2','Distance']]
 elif tank == 'Tank3':
 	df1 = supplies.loc['Tank3':'Tank3','Loading Date':'Elapsed Time']
 	df2 = supplies.loc['Tank3':'Tank3','Loading Volume (@15C)':'Volume Diff']
 	df3 = supplies.loc['Tank3':'Tank3','Origin':'Travelled Distance']
 	df4 = supplies.loc['Tank3':'Tank3','Unit':'Customer']
 	if index_type == 'Hs':
-		df6 = df.loc[:,['Vol3','Hours']]
+		df6 = df.loc[from_row:to_row,['Vol3','Hours']]
 	else:
-		df6 = df.loc[:,['Vol3','Distance']]
+		df6 = df.loc[from_row:to_row,['Vol3','Distance']]
 elif tank == 'Tank4':
 	df1 = supplies.loc['Tank4':'Tank4','Loading Date':'Elapsed Time']
 	df2 = supplies.loc['Tank4':'Tank4','Loading Volume (@15C)':'Volume Diff']
 	df3 = supplies.loc['Tank4':'Tank4','Origin':'Travelled Distance']
 	df4 = supplies.loc['Tank4':'Tank4','Unit':'Customer']
 	if index_type == 'Hs':
-		df6 = df.loc[:,['Vol4','Hours']]
+		df6 = df.loc[from_row:to_row,['Vol4','Hours']]
 	else:
-		df6 = df.loc[:,['Vol4','Distance']]
+		df6 = df.loc[from_row:to_row,['Vol4','Distance']]
 elif tank == 'Tank5':
 	df1 = supplies.loc['Tank5':'Tank5','Loading Date':'Elapsed Time']
 	df2 = supplies.loc['Tank5':'Tank5','Loading Volume (@15C)':'Volume Diff']
 	df3 = supplies.loc['Tank5':'Tank5','Origin':'Travelled Distance']
 	df4 = supplies.loc['Tank5':'Tank5','Unit':'Customer']
 	if index_type == 'Hs':
-		df6 = df.loc[:,['Vol5','Hours']]
+		df6 = df.loc[from_row:to_row,['Vol5','Hours']]
 	else:
-		df6 = df.loc[:,['Vol5','Distance']]
+		df6 = df.loc[from_row:to_row,['Vol5','Distance']]
 else:
 	df1 = supplies.loc['Tank6':'Tank6','Loading Date':'Elapsed Time']
 	df2 = supplies.loc['Tank6':'Tank6','Loading Volume (@15C)':'Volume Diff']
 	df3 = supplies.loc['Tank6':'Tank6','Origin':'Travelled Distance']
 	df4 = supplies.loc['Tank6':'Tank6','Unit':'Customer']
 	if index_type == 'Hs':
-		df6 = df.loc[:,['Vol6','Hours']]
+		df6 = df.loc[from_row:to_row,['Vol6','Hours']]
 	else:
-		df6 = df.loc[:,['Vol6','Distance']]
+		df6 = df.loc[from_row:to_row,['Vol6','Distance']]
 
 st.write(supplies)
 st.write(df)

@@ -51,11 +51,10 @@ tank = st.sidebar.radio(
     ('Total', 'Tank1', 'Tank2', 'Tank3', 'Tank4', 'Tank5', 'Tank6'))
 
 if tank == 'Total':
-	max_vol = max(df['VolTotal'])
 	max_dif = max(df['DifVolTotal'])
-	label_tank = "Total"
+	label_tank = "DifVolTotal"
 
-sel_vol = st.sidebar.slider(label_tank, 0.0, max_vol, (0.0, max_vol))
+sel_vol = st.sidebar.slider(label_tank, 0.0, max_dif)
 st.write(sel_vol[1])
 st.write(sel_vol[0])
 
@@ -70,9 +69,9 @@ if tank == 'Total':
 	else:
 		df6 = df.loc[from_row:to_row,['VolTotal','Distance']]
 		df7 = df.loc[from_row:to_row,['DifVolTotal','Distance']]
-	# df7 = df7[df7.DifVolTotal < 5.0]
+	df7 = df7[df7.DifVolTotal < sel_vol[1]]
 	# df6 = df6[df6['VolTotal'].isin([sel_vol[1]:sel_vol[0]])])
-	df6 = df6[df6['VolTotal'].between(sel_vol[0], sel_vol[1])]
+	# df6 = df6[df6['VolTotal'].between(sel_vol[0], sel_vol[1])]
 elif tank == 'Tank1':
 	df1 = supplies.loc['Tank1':'Tank1','Loading Date':'Elapsed Time']
 	df2 = supplies.loc['Tank1':'Tank1','Loading Volume (@15C)':'Volume Diff']

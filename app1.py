@@ -42,7 +42,7 @@ tank = st.sidebar.radio(
 
 if tank == 'All':
     df1 =  df.loc[0,['Loading Date','Unloading Date','Elapsed Time']]
-else if tank == 'Tank1':
+elif tank == 'Tank1':
     df1 =  df.loc[1,['Loading Date','Unloading Date','Elapsed Time']]
 else:
     df1 =  df.loc[2,['Loading Date','Unloading Date','Elapsed Time']]

@@ -5,7 +5,7 @@ import altair as alt
 import pydeck as pdk
 
 
-# @st.cache
+@st.cache
 def load_data(filename):
     data = pd.read_csv(filename)
     return (data)
@@ -15,8 +15,7 @@ df = load_data(csv_file)
 
 supply_file = 'supplies1.csv'
 supplies = load_data(supply_file)
-supplies.set_index('Tank')
-
+supplies.set_index('Tank', inplace=True)
 st.write(supplies)
 
 max_index = df.index[-1]

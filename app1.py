@@ -32,12 +32,12 @@ index_type = st.sidebar.radio(
 
 if index_type == 'Km':
     max_value = max_distance
-    text = "Distance [Km]"
+    label = "Distance [Km]"
 else:
     max_value = max_time
-    text = "Time [Hs]"
+    label = "Time [Hs]"
 
-sel_value = st.sidebar.slider(text, 'Distance [Km]', 0.1, max_value, (0.1, max_value))
+sel_value = st.sidebar.slider(label, 0.0, max_value, (0.0, max_value))
 
 st.write(sel_value)
 st.write(sel_value[0])

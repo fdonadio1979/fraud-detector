@@ -13,7 +13,8 @@ def load_data(filename):
 csv_file = 'raw-data1.csv'
 df = load_data(csv_file)
 
-
+supply_file = 'supplies.csv'
+supplies = load_data(supply_file)
 
 max_index = df.index[-1]
 max_distance = df['Distance'].iloc[-1].round(decimals=1)
@@ -32,8 +33,16 @@ else:
 
 sel_value = st.sidebar.slider(label, 0.0, max_value, (0.0, max_value))
 
-from_row = (sel_value[0] * max_index / max_value)
-to_row = (sel_value[1] * max_index / max_value)
+from_row = int (sel_value[0] * max_index / max_value)
+to_row = int (sel_value[1] * max_index / max_value)
+
+tank = st.sidebar.radio(
+    "Select tank",
+    ('All', 'Tank1', 'Tank2', 'Tank3', 'Tank4', 'Tank5', 'Tank6'))
+
+if tank = 'All':
+    df_all = supplies.loc[[0,6],['fecha_hora_stop','fecha_hora_start']]
+
 
 st.write(df)
 st.write(max_index)
@@ -44,7 +53,7 @@ st.write(from_row)
 st.write(to_row)
 
 st.write(label)
-
+st.write(df_all)
 
 
 # @st.cache

@@ -40,7 +40,7 @@ tank = st.sidebar.radio(
     "Select tank",
     ('All', 'Tank1', 'Tank2', 'Tank3', 'Tank4', 'Tank5', 'Tank6'))
 
-if tank = 'All':
+if tank == 'All':
     df_all = supplies.loc[[0,6],['fecha_hora_stop','fecha_hora_start']]
 
 

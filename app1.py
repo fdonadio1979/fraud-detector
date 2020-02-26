@@ -61,7 +61,7 @@ st.write(to_row)
 st.write(label)
 st.write(df1)
 df1_t = df1.transpose()
-st.write(supplies.head(1)['Loading Date','Unloading Date','Elapsed Time'])
+st.write(supplies['Loading Date','Unloading Date','Elapsed Time'].head(1))
 st.write(supplies.loc[0,['Loading Date','Unloading Date','Elapsed Time']])
 # @st.cache
 # def load_data_time(nrows, skiprows):

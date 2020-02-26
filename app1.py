@@ -19,13 +19,6 @@ max_index = df.index[-1]
 max_distance = df['Distance'].iloc[-1].round(decimals=1)
 max_time = df['Hours'].iloc[-1].round(decimals=1)
 
-
-
-st.write(df)
-st.write(max_index)
-st.write(max_distance)
-st.write(max_time)
-
 index_type = st.sidebar.radio(
     "Select index type",
     ('Km', 'Hs'))
@@ -39,9 +32,18 @@ else:
 
 sel_value = st.sidebar.slider(label, 0.0, max_value, (0.0, max_value))
 
+from_row = int (sel_value[0] * max_index / max_value)
+to_row = int (sel_value[1] * max_index / max_value) - from_row
+
+st.write(df)
+st.write(max_index)
+st.write(max_distance)
+st.write(max_time)
 st.write(sel_value)
-st.write(sel_value[0])
-st.write(sel_value[1])
+st.write(from_row)
+st.write(to_row)
+
+
 
 
 # @st.cache

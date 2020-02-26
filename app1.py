@@ -59,6 +59,7 @@ if tank == 'Total':
 	else:
 		df6 = df.loc[from_row:to_row,['VolTotal','Distance']]
 		df7 = df.loc[from_row:to_row,['DifVolTotal','Distance']]
+	df7 = df7[df7.DifVolTotal < 10.0]
 elif tank == 'Tank1':
 	df1 = supplies.loc['Tank1':'Tank1','Loading Date':'Elapsed Time']
 	df2 = supplies.loc['Tank1':'Tank1','Loading Volume (@15C)':'Volume Diff']
@@ -179,6 +180,7 @@ else:
 st.area_chart(df6, use_container_width=True)
 
 # st.write(df7)
+
 st.area_chart(df7, use_container_width=True)
 
 # st.write(supplies[['Loading Date','Unloading Date','Elapsed Time']].head(1))

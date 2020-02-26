@@ -16,6 +16,7 @@ df = load_data(csv_file)
 supply_file = 'supplies1.csv'
 supplies = load_data(supply_file)
 
+
 st.write(supplies)
 
 max_index = df.index[-1]
@@ -43,7 +44,7 @@ tank = st.sidebar.radio(
     ('All', 'Tank1', 'Tank2', 'Tank3', 'Tank4', 'Tank5', 'Tank6'))
 
 if tank == 'All':
-    df1 = supplies.loc[0,['Loading Date','Unloading Date','Elapsed Time']]
+    df1 = supplies.loc[:,['Loading Date':'Elapsed Time']]
 elif tank == 'Tank1':
     df1 = supplies.loc[1,['Loading Date','Unloading Date','Elapsed Time']]
 else:
@@ -61,8 +62,8 @@ st.write(to_row)
 st.write(label)
 st.write(df1)
 df1_t = df1.transpose()
-st.write(supplies['Loading Date','Unloading Date','Elapsed Time'].head(1))
-st.write(supplies.loc[0,['Loading Date','Unloading Date','Elapsed Time']])
+# st.write(supplies[['Loading Date','Unloading Date','Elapsed Time']].head(1))
+# st.write(supplies.loc[0,['Loading Date','Unloading Date','Elapsed Time']])
 # @st.cache
 # def load_data_time(nrows, skiprows):
     # data_t = pd.read_csv("raw-data1.csv", nrows = nrows, index_col = "Hours", skiprows=[i for i in range(1,skiprows)])

@@ -93,6 +93,29 @@ st.write(df2)
 st.write(df3)
 st.write(df4)
 
+midpoint = (np.average(df["Lat"]), np.average(df["Lon"]))
+
+st.write(pdk.Deck(
+    map_style="mapbox://styles/mapbox/light-v9",
+    initial_view_state={
+        "latitude": midpoint[0],
+        "longitude": midpoint[1],
+        "zoom": 11.7,
+        "pitch": 60,
+    },
+    layers=[
+        pdk.Layer(
+            "HexagonLayer",
+            data=df,
+            get_position=["Lon", "Lat"],
+            radius=100,
+            elevation_scale=4,
+            elevation_range=[0, 1000],
+            pickable=True,
+            extruded=True,
+        ),
+    ],
+))
 
 
 # st.write(supplies[['Loading Date','Unloading Date','Elapsed Time']].head(1))

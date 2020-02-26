@@ -69,7 +69,7 @@ if tank == 'Total':
 	else:
 		df6 = df.loc[from_row:to_row,['VolTotal','Distance']]
 		df7 = df.loc[from_row:to_row,['DifVolTotal','Distance']]
-	df7 = df7[df7.DifVolTotal < sel_vol[1].round(decimals=1)]
+	df7 = df7[df7['DifVolTotal'] < sel_vol[1]]
 	# df6 = df6[df6['VolTotal'].isin([sel_vol[1]:sel_vol[0]])])
 	# df6 = df6[df6['VolTotal'].between(sel_vol[0], sel_vol[1])]
 elif tank == 'Tank1':

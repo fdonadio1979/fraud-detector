@@ -16,8 +16,8 @@ df = load_data(csv_file)
 
 
 max_index = df.index[-1]
-max_distance = df['Distance'].iloc[-1]
-max_time = df['Hours'].iloc[-1]
+max_distance = df['Distance'].iloc[-1].round(decimals=1)
+max_time = df['Hours'].iloc[-1].round(decimals=1)
 
 
 st.write(df)

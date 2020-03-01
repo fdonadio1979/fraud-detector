@@ -205,7 +205,7 @@ st.area_chart(df6, use_container_width=True)
 
 st.area_chart(df7, use_container_width=True)
 
-alt.Chart(df7).mark_area(
+st.altair_chart(df7).mark_area(
     color="lightblue",
     interpolate='step-after',
     line=True

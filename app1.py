@@ -207,29 +207,12 @@ st.area_chart(df6, use_container_width=True)
 
 
 st.vega_lite_chart(df7, {
-    "mark": {
-    "type": "area",
-    "line": {
-        "color": "darkgreen"
-    },
-    "color": {
-        "x1": 1,
-        "y1": 1,
-        "x2": 1,
-        "y2": 0,
-        "gradient": "linear",
-        "stops": [
-        {
-            "offset": 0,
-            "color": "white"
+    'mark': {
+        'type': 'area',
+        'line': {
+            'color': 'darkgreen'
         },
-        {
-            "offset": 1,
-            "color": "darkgreen"
-        }
-        ]
-    }
-    }
+    },
  })
 
 # st.write(supplies[['Loading Date','Unloading Date','Elapsed Time']].head(1))

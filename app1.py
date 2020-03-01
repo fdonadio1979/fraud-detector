@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import altair as alt
-from vega_datasets import data
 import pydeck as pdk
 
 
@@ -213,7 +212,7 @@ alt.Chart(df7).mark_area(
 ).encode(
     x='Distance',
     y='DifVolTotal'
-).transform_filter(alt.datum.symbol == 'GOOG')
+)
 
 
 # st.write(supplies[['Loading Date','Unloading Date','Elapsed Time']].head(1))

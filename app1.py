@@ -205,14 +205,7 @@ st.area_chart(df6, use_container_width=True)
 
 st.area_chart(df7, use_container_width=True)
 
-st.altair_chart(df7).mark_area(
-    color="lightblue",
-    interpolate='step-after',
-    line=True
-).encode(
-    x='Distance',
-    y='DifVolTotal'
-)
+st.altair_chart(df7)
 
 
 # st.write(supplies[['Loading Date','Unloading Date','Elapsed Time']].head(1))

@@ -203,17 +203,8 @@ st.area_chart(df6, use_container_width=True)
 
 # st.write(df7)
 
-# st.area_chart(df7, use_container_width=True)
+st.area_chart(df7, use_container_width=True)
 
-
-st.vega_lite_chart(df7, {
-    'mark': {
-        'type': 'area',
-        'line': {
-            'color': 'darkgreen'
-        },
-    },
- })
 
 # st.write(supplies[['Loading Date','Unloading Date','Elapsed Time']].head(1))
 # st.write(supplies.loc[0,['Loading Date','Unloading Date','Elapsed Time']])

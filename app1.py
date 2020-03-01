@@ -229,13 +229,17 @@ st.vega_lite_chart(df7, {
         }
         ]
     }
-    }
-    'encoding': {
-        'x': {'field': 'a', 'type': 'quantitative'},
-        'y': {'field': 'b', 'type': 'quantitative'},
-        'size': {'field': 'c', 'type': 'quantitative'},
-        'color': {'field': 'c', 'type': 'quantitative'},
     },
+    "encoding": {
+        "x": {
+            "field": "date",
+            "type": "temporal"
+        },
+        "y": {
+            "field": "price",
+            "type": "quantitative"
+        }
+    }
  })
 
 # st.write(supplies[['Loading Date','Unloading Date','Elapsed Time']].head(1))

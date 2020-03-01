@@ -229,16 +229,6 @@ st.vega_lite_chart(df7, {
         }
         ]
     }
-    },
-    "encoding": {
-        "x": {
-            "field": "date",
-            "type": "temporal"
-        },
-        "y": {
-            "field": "price",
-            "type": "quantitative"
-        }
     }
  })
 

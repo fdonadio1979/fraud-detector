@@ -205,6 +205,14 @@ st.area_chart(df6, use_container_width=True)
 
 st.area_chart(df7, use_container_width=True)
 
+alt.Chart(source).mark_area(
+    color="lightblue",
+    interpolate='step-after',
+    line=True
+).encode(
+    x='Distance',
+    y='DifVolTotal'
+).transform_filter(alt.datum.symbol == 'GOOG')
 
 
 # st.write(supplies[['Loading Date','Unloading Date','Elapsed Time']].head(1))
